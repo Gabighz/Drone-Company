@@ -22,6 +22,9 @@ public class Drone {
     // The geo-location coordinates of the drone
     private String coordinates;
 
+    // Random object to be used in computing speed and coordinates
+    private Random rand = new Random();
+
     /**
      * Constructs a Drone
      */
@@ -77,7 +80,7 @@ public class Drone {
      * We can assume that the maximum speed of a drone is 100 units of some arbitrary measurement.
      */
     public int initializeSpeed() {
-        return new Random().nextInt(100 + 1);
+        return rand.nextInt(100) + 1;
 
     }
 
@@ -86,7 +89,7 @@ public class Drone {
      * We can assume that the boundaries of the space in which the drone can travel are (0, 0) and (50, 50).
      */
     public String initializeCoordinates() {
-        return new Random().nextInt(50 + 1) + ", " + new Random().nextInt(50 + 1);
+        return rand.nextInt(50) + 1 + ", " + rand.nextInt(50) + 1;
 
     }
 
