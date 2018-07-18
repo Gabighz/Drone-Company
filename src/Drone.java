@@ -5,7 +5,13 @@
  *
  * @author Gabriel Ghiuzan
  */
+
+import java.util.Random;
+
 public class Drone {
+
+    // Stores the last assigned unique identifier
+    private static int idCounter;
 
     // The unique identifier of the drone
     private final int uniqueId;
@@ -18,14 +24,12 @@ public class Drone {
 
     /**
      * Constructs a Drone
-     * @param uniqueId The unique identifier of the drone.
-     * @param speed The speed of the drone.
-     * @param coordinates The geo-location coordinates of the drone.
      */
-    public Drone(int uniqueId, int speed, int coordinates){
-        this.uniqueId = uniqueId;
-        this.speed = speed;
-        this.coordinates = coordinates;
+    public Drone() {
+        this.uniqueId = idCounter;
+        this.speed = initializeSpeed();
+        this.coordinates = initializeCoordinates();
+        idCounter++;
     }
 
    /**
@@ -67,5 +71,15 @@ public class Drone {
         return coordinates;
 
     }
+
+    /**
+     * @return Returns the initial speed of the drone.
+     * We can assume that the maximum speed of a drone is 100 units of some arbitrary measurement.
+     */
+    public int initializeSpeed() {
+        return new Random().nextInt(100);
+
+    }
+
 
 }
