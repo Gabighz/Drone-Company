@@ -20,7 +20,7 @@ public class Drone {
     private int speed;
 
     // The geo-location coordinates of the drone
-    private int coordinates;
+    private String coordinates;
 
     /**
      * Constructs a Drone
@@ -43,8 +43,8 @@ public class Drone {
    /**
     * @param coordinates Resets the geo-location coordinates of the drone.
     */
-    public void setCoordinates(int coordinates){
-        this.coordinates = coordinates;
+    public void setCoordinates(int xCoordinate, int yCoordinate){
+        this.coordinates = xCoordinate + ", " + yCoordinate;
 
     }
 
@@ -67,7 +67,7 @@ public class Drone {
    /**
     * @return coordinates Return the geo-location coordinates of the drone.
     */
-    public int getCoordinates(){
+    public String getCoordinates(){
         return coordinates;
 
     }
@@ -78,6 +78,15 @@ public class Drone {
      */
     public int initializeSpeed() {
         return new Random().nextInt(100);
+
+    }
+
+    /**
+     * @return Returns the initial geo-location of the drone.
+     * We can assume that the boundaries of the space in which the drone can travel are (0, 0) and (50, 50).
+     */
+    public String initializeCoordinates() {
+        return new Random().nextInt(50) + ", " + new Random().nextInt(50);
 
     }
 
