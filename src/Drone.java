@@ -7,6 +7,7 @@
  */
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Drone {
 
@@ -89,9 +90,73 @@ public class Drone {
      * We can assume that the boundaries of the space in which the drone can travel are (0, 0) and (50, 50).
      */
     public String initializeCoordinates() {
-        return rand.nextInt(50) + 1 + ", " + rand.nextInt(50) + 1;
+        return (rand.nextInt(50) + 1) + "," + (rand.nextInt(50) + 1);
 
     }
 
+    /**
+     * Updates the speed of the drone.
+     * There is a 33% chance of the speed being increased by a unit, the same probability of it being decreased by a unit
+     * if and only if it is bigger than 0, and the rest of the time the speed stays the same.
+     */
+    public void updateSpeed() {
+        int probability = rand.nextInt(3) + 1;
+
+        if (probability == 1) {
+            this.setSpeed(getSpeed() + 1);
+
+        } else if (probability == 2 && this.speed > 0) {
+            this.setSpeed(getSpeed() - 1);
+
+        }
+
+    }
+
+    /**
+     * Updates the coordinates of the drone.
+     * There is a 25% chance of the x-coordinate or the y-coordinate to be either increased or decreated
+     * by a unit of some arbitrary measurement, the same chance of both of them being either increased or decreased,
+     * and the rest of the time they stay the same.
+     */
+    public void updateCoordinates() {
+        String currentCoordinates = this.getCoordinates();
+        Scanner line = new Scanner(currentCoordinates).useDelimiter(",");
+        int xCoordinate = line.nextInt();
+        int yCoordinate = line.nextInt();
+
+        int probability = rand.nextInt(4) + 1;
+
+        if (probability == 1) {
+            if (rand.nextBoolean() == true) {
+                xCoordinate++;
+
+            } else {
+                xCoordinate--;
+
+            }
+
+        } else if (probability == 2) {
+            if (rand.nextBoolean() == true) {
+                yCoordinate++;
+
+            } else {
+                yCoordinate--;
+
+            }
+
+        } else if (probability == 3) {
+            if (rand.nextBoolean() == true) {
+                xCoordinate++;
+                yCoordinate++;
+
+            } else {
+                xCoordinate--;
+                yCoordinate--;
+
+            }
+
+        }
+
+    }
 
 }
