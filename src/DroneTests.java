@@ -9,7 +9,7 @@ import org.junit.Test;
 public class DroneTests {
 
     @Test
-    public void drone1() {
+    public void droneSpeed() {
         Drone firstDrone = new Drone();
         firstDrone.setSpeed(1);
 
@@ -17,7 +17,7 @@ public class DroneTests {
     }
 
     @Test
-    public void drone2() {
+    public void droneCoordinates() {
         Drone secondDrone = new Drone();
         secondDrone.setCoordinates(50, 50);
 
