@@ -1,6 +1,5 @@
 /*
  * The purpose of this class is to test the Drone class.
- * There is a test case for each parameter of the Drone constructor.
  *
  */
 
