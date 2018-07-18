@@ -9,6 +9,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
+@SuppressWarnings("WeakerAccess")
 public class Drone {
 
     // Stores the last assigned unique identifier
@@ -24,7 +25,7 @@ public class Drone {
     private String coordinates;
 
     // Random object to be used in computing speed and coordinates
-    private Random rand = new Random();
+    private final Random rand = new Random();
 
     /**
      * Constructs a Drone
@@ -45,10 +46,12 @@ public class Drone {
     }
 
    /**
-    * @param coordinates Resets the geo-location coordinates of the drone.
+    * Resets the geo-location coordinates of the drone.
+    * @param xCoordinate The new x-coordinate of the drone.
+    * @param yCoordinate The new y-coordinate of the drone.
     */
     public void setCoordinates(int xCoordinate, int yCoordinate){
-        this.coordinates = xCoordinate + ", " + yCoordinate;
+        this.coordinates = xCoordinate + "," + yCoordinate;
 
     }
 
@@ -114,7 +117,7 @@ public class Drone {
 
     /**
      * Updates the coordinates of the drone.
-     * There is a 25% chance of the x-coordinate or the y-coordinate to be either increased or decreated
+     * There is a 25% chance of the x-coordinate or the y-coordinate to be either increased or decreased
      * by a unit of some arbitrary measurement, the same chance of both of them being either increased or decreased,
      * and the rest of the time they stay the same.
      */
@@ -127,7 +130,7 @@ public class Drone {
         int probability = rand.nextInt(4) + 1;
 
         if (probability == 1) {
-            if (rand.nextBoolean() == true) {
+            if (rand.nextBoolean()) {
                 xCoordinate++;
 
             } else {
