@@ -1,9 +1,10 @@
-/**
- * This class starts the program. It creates a window and displays the active drones and their current speed.
+/*
+ * This class starts the program. It displays the active drones and their current speed.
  * Also, it highlights drones which have not been moving for more than 10 seconds.
  *
- * @author Gabriel Ghiuzan
  */
+
+import java.util.Scanner;
 
  
 @SuppressWarnings("WeakerAccess")
@@ -16,8 +17,14 @@ public class Main {
         Drone thirdDrone = new Drone();
 
         int secondsCounter = 0;
+        Boolean run = true;
 
-        while(true) {
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("Type 'stop' to cease execution.");
+
+
+        while(run) {
 
             /*
              * Given that cellular modem connections are expensive, we can assume that having the drones report back
@@ -37,6 +44,11 @@ public class Main {
             firstDrone.sendDetails(secondsCounter);
             secondDrone.sendDetails(secondsCounter);
             thirdDrone.sendDetails(secondsCounter);
+
+            if(in.next().equals("stop")){
+                run = false;
+
+            }
 
         }
 
