@@ -148,7 +148,7 @@ public class Drone {
             }
 
         } else if (probability == 3) {
-            if (rand.nextBoolean() == true) {
+            if (rand.nextBoolean()) {
                 xCoordinate++;
                 yCoordinate++;
 
@@ -159,6 +159,8 @@ public class Drone {
             }
 
         }
+
+        this.coordinates = xCoordinate + "," + yCoordinate;
 
     }
 
