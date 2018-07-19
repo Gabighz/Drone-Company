@@ -176,6 +176,7 @@ public class Drone {
 
     /**
      * Prints the drone's unique ID and current speed.
+     * The print statement is highlighted if the drone has not been moving for more than 10 seconds.
      */
     public void sendDetails(int secondsCounter) {
 
