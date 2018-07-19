@@ -15,6 +15,8 @@ public class Main {
         Drone secondDrone = new Drone();
         Drone thirdDrone = new Drone();
 
+        int secondsCounter = 0;
+
         while(true) {
 
             /*
@@ -23,6 +25,7 @@ public class Main {
              */
             try {
                 Thread.sleep(1000);
+                secondsCounter++;
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -31,9 +34,9 @@ public class Main {
 
             System.out.print("\r");
 
-            firstDrone.sendDetails();
-            secondDrone.sendDetails();
-            thirdDrone.sendDetails();
+            firstDrone.sendDetails(secondsCounter);
+            secondDrone.sendDetails(secondsCounter);
+            thirdDrone.sendDetails(secondsCounter);
 
         }
 

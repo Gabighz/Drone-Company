@@ -24,8 +24,18 @@ public class Drone {
     // The geo-location coordinates of the drone
     private String coordinates;
 
+    // The last geo-location coordinates of the drone
+    private String lastCoordinates;
+
     // Random object to be used in computing speed and coordinates
     private final Random rand = new Random();
+
+    // ANSI escape sequences used for colouring drones which do not move
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_RESET = "\u001B[0m";
+
+    // Whether the drone is moving or not
+    private Boolean moving = true;
 
     /**
      * Constructs a Drone
@@ -164,11 +174,33 @@ public class Drone {
 
     }
 
-    public void sendDetails(){
+    /**
+     * Prints the drone's unique ID and current speed.
+     */
+    public void sendDetails(int secondsCounter) {
 
         this.updateSpeed();
+        this.updateCoordinates();
 
-        System.out.printf("  Drone ID: %d Speed: %d  |", this.getUniqueId(), this.getSpeed());
+
+        if (secondsCounter % 10 == 0){
+            if (coordinates.equals(lastCoordinates)) {
+                this.moving = false;
+            } else {
+                this.moving = true;
+
+            }
+            this.lastCoordinates = coordinates;
+
+        }
+
+        if (this.moving) {
+            System.out.printf("  Drone ID: %d Speed: %d  |", this.getUniqueId(), this.getSpeed());
+
+        } else {
+            System.out.printf(ANSI_RED + "  Drone ID: %d Speed: %d  |" + ANSI_RESET, this.getUniqueId(), this.getSpeed());
+
+        }
 
         }
 
