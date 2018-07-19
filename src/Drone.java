@@ -139,7 +139,7 @@ public class Drone {
             }
 
         } else if (probability == 2) {
-            if (rand.nextBoolean() == true) {
+            if (rand.nextBoolean()) {
                 yCoordinate++;
 
             } else {
@@ -161,5 +161,13 @@ public class Drone {
         }
 
     }
+
+    public void sendDetails(){
+
+        this.updateSpeed();
+
+        System.out.printf("  Drone ID: %d Speed: %d  |", this.getUniqueId(), this.getSpeed());
+
+        }
 
 }
