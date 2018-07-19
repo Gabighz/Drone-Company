@@ -9,6 +9,8 @@
 import java.util.Random;
 import java.util.Scanner;
 
+
+
 @SuppressWarnings("WeakerAccess")
 public class Drone {
 
@@ -177,6 +179,7 @@ public class Drone {
     /**
      * Prints the drone's unique ID and current speed.
      * The print statement is highlighted if the drone has not been moving for more than 10 seconds.
+     * @param secondsCounter Seconds that have passed since the program started.
      */
     public void sendDetails(int secondsCounter) {
 
@@ -203,6 +206,6 @@ public class Drone {
 
         }
 
-        }
+    }
 
 }
