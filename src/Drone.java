@@ -111,8 +111,9 @@ public class Drone {
 
     /**
      * Updates the speed of the drone.
-     * There is a 33% chance of the speed being increased by a unit, the same probability of it being decreased by a unit
-     * if and only if it is bigger than 0, and the rest of the time the speed stays the same.
+     * There is a 33% chance of the speed being increased by a unit if and only if it is smaller than 100,
+     * the same probability of it being decreased by a unit if and only if it is bigger than 0,
+     * and the rest of the time the speed stays the same.
      */
     public void updateSpeed() {
         int probability = rand.nextInt(3) + 1;
@@ -131,7 +132,7 @@ public class Drone {
      * Updates the coordinates of the drone.
      * There is a 25% chance of the x-coordinate or the y-coordinate to be either increased or decreased
      * by a unit of some arbitrary measurement, the same chance of both of them being either increased or decreased,
-     * and the rest of the time they stay the same.
+     * if and only if they are bigger than 0 and smaller than 50, and the rest of the time they stay the same.
      */
     public void updateCoordinates() {
         String currentCoordinates = this.getCoordinates();
