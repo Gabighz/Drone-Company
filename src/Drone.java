@@ -130,8 +130,8 @@ public class Drone {
 
     /**
      * Updates the coordinates of the drone.
-     * There is a 25% chance of the x-coordinate or the y-coordinate to be either increased or decreased
-     * by a unit of some arbitrary measurement, the same chance of both of them being either increased or decreased,
+     * There is a 50% chance of the x-coordinate or the y-coordinate to be either increased or decreased
+     * by a unit of some arbitrary measurement, 25% chance of both of them being either increased or decreased,
      * if and only if they are bigger than 0 and smaller than 50, and the rest of the time they stay the same.
      */
     public void updateCoordinates() {
