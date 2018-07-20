@@ -4,9 +4,6 @@
  *
  */
 
-import java.util.Scanner;
-
- 
 @SuppressWarnings("WeakerAccess")
 public class Main {
 
@@ -20,11 +17,7 @@ public class Main {
         Boolean run = true;
 
 
-        Scanner in = new Scanner(System.in);
-        System.out.println("Type 'stop' to cease execution.");
-
-
-        while(run) {
+        while(true) {
 
             /*
              * Given that cellular modem connections are expensive, we can assume that having the drones report back
@@ -44,11 +37,6 @@ public class Main {
             firstDrone.sendDetails(secondsCounter);
             secondDrone.sendDetails(secondsCounter);
             thirdDrone.sendDetails(secondsCounter);
-
-            if(in.next().equals("stop")){
-                run = false;
-
-            }
 
         }
 
