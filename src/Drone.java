@@ -117,7 +117,7 @@ public class Drone {
     public void updateSpeed() {
         int probability = rand.nextInt(3) + 1;
 
-        if (probability == 1) {
+        if (probability == 1 && this.speed < 100) {
             this.setSpeed(getSpeed() + 1);
 
         } else if (probability == 2 && this.speed > 0) {
@@ -142,31 +142,40 @@ public class Drone {
         int probability = rand.nextInt(4) + 1;
 
         if (probability == 1) {
-            if (rand.nextBoolean()) {
+            if (rand.nextBoolean() && xCoordinate < 50) {
                 xCoordinate++;
 
             } else {
-                xCoordinate--;
+                if (xCoordinate > 0){
+                    xCoordinate--;
+
+                }
 
             }
 
         } else if (probability == 2) {
-            if (rand.nextBoolean()) {
+            if (rand.nextBoolean() && yCoordinate < 50) {
                 yCoordinate++;
 
             } else {
-                yCoordinate--;
+                if (yCoordinate > 0){
+                    yCoordinate--;
+
+                }
 
             }
 
         } else if (probability == 3) {
-            if (rand.nextBoolean()) {
+            if (rand.nextBoolean() && xCoordinate < 50 && yCoordinate < 50) {
                 xCoordinate++;
                 yCoordinate++;
 
             } else {
-                xCoordinate--;
-                yCoordinate--;
+                if (xCoordinate > 0 && yCoordinate > 0){
+                    xCoordinate--;
+                    yCoordinate--;
+
+                }
 
             }
 
