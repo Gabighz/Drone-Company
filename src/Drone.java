@@ -9,9 +9,6 @@
 import java.util.Random;
 import java.util.Scanner;
 
-
-
-@SuppressWarnings("WeakerAccess")
 public class Drone {
 
     // Stores the last assigned unique identifier
